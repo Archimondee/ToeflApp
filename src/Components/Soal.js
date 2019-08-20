@@ -1,9 +1,60 @@
 import React, {Component} from 'react';
-import {Text, View, Dimensions, TouchableOpacity} from 'react-native';
+import {Text, View, Dimensions, TouchableOpacity, AsyncStorage} from 'react-native';
 import {Card} from 'native-base';
 import {FontAwesome5, MaterialIcons, Ionicons} from 'react-native-vector-icons';
 
 export default class Soal extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      nilai_structure : '',
+      nilai_writing: ''
+    }
+  }
+
+  getSoal(jenis_soal){
+    var js = jenis_soal;
+    fetch('https://kumpulan-soal-toefl.000webhostapp.com/api_soal/getSoal.php',{
+      method:'POST',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        jenis_soal: js
+      })
+    }).then((response)=>response.json())
+      .then((responseJson) => {
+        //console.log(responseJson);
+        // this.setState({
+        //   soal: responseJson,
+        // })
+        this.props.navigation.navigate('SoalText',{
+          soal: responseJson,
+          jenis_soal: js
+        })
+        //console.log(this.state.soal[0]);
+      })
+  }
+
+  getNilai(){
+    AsyncStorage.getItem('User',(err, result)=>{
+      if(result){
+        let hasil = JSON.parse(result);
+        this.setState({
+          nilai_structure: hasil[0].nilai_structure,
+          nilai_writing: hasil[0].nilai_writing
+        })
+      }
+    })
+  }
+
+  componentDidMount(){
+    this.getNilai();
+  }
+  componentDidUpdate(){
+    this.getNilai();
+  }
   render () {
     const {width, height} = Dimensions.get ('screen');
     return (
@@ -26,13 +77,14 @@ export default class Soal extends Component {
               flex: 1,
               flexDirection: 'row',
               flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent:'center',
               marginLeft: 20,
               marginRight: 20,
             }}
           >
-            <Card
+          {
+            this.state.nilai_writing == '0'?(
+              <Card
               style={{
                 height: 100,
                 width: '100%',
@@ -44,7 +96,7 @@ export default class Soal extends Component {
                 marginRight: 20,
               }}
             >
-              <TouchableOpacity style={{flex: 1, flexDirection: 'column'}}>
+              <TouchableOpacity onPress={()=>this.getSoal('writing')} style={{flex: 1, flexDirection: 'column'}}>
                 <View
                   style={{
                     flex: 2,
@@ -64,7 +116,12 @@ export default class Soal extends Component {
                 </View>
               </TouchableOpacity>
             </Card>
-            <Card
+            ):null
+          }
+
+          {
+            this.state.nilai_structure=='0'?(
+              <Card
               style={{
                 height: 100,
                 width: '100%',
@@ -76,7 +133,7 @@ export default class Soal extends Component {
                 marginRight: 20,
               }}
             >
-              <TouchableOpacity style={{flex: 1, flexDirection: 'column'}}>
+              <TouchableOpacity onPress={()=>this.getSoal('structure')} style={{flex: 1, flexDirection: 'column'}}>
                 <View
                   style={{
                     flex: 2,
@@ -96,6 +153,8 @@ export default class Soal extends Component {
                 </View>
               </TouchableOpacity>
             </Card>
+            ):null
+          }
           </View>
         </View>
       </View>

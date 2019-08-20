@@ -3,11 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Home from './src/Components/Home';
 import Soal from './src/Components/Soal';
-import SoalWriting from './src/Components/SoalWriting';
+import SoalText from './src/Components/SoalText';
+import InfoScreen from './src/Components/InfoScreen';
+
+import Route from './src/Route';
 
 export default function App() {
   return (
-    <SoalWriting/>
+    <Main/>
   );
 }
 
