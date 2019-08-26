@@ -126,7 +126,7 @@ export default class Home extends Component {
                   marginLeft:20, marginRight:20
                 }}
               >
-                <TouchableOpacity  style={{ flex: 1, flexDirection: 'column' }}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate('History')} style={{ flex: 1, flexDirection: 'column' }}>
                   <View
                     style={{
                       flex: 2,

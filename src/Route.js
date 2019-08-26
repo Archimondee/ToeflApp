@@ -11,7 +11,8 @@ import {Ionicons, SimpleLineIcons} from 'react-native-vector-icons';
 import Home from './Components/Home';
 import InfoScreen from './Components/InfoScreen';
 import Soal from './Components/Soal';
-import SoalText from './Components/SoalText'
+import SoalText from './Components/SoalText';
+import HistoryNilai from './Components/HistoryNilai';
 
 import Login from './Components/User/Login';
 import Register from './Components/User/Register';
@@ -23,7 +24,8 @@ const MainStack = createStackNavigator (
     Home: Home,
     Soal: Soal,
     SoalText: SoalText,
-    Info:InfoScreen
+    Info:InfoScreen,
+    History: HistoryNilai
   },
   {
     initialRouteName: 'Home',

@@ -157,11 +157,36 @@ export default class SoalText extends Component {
           nilai_writing: nilai_writing
         }]
 
+        this.setState({
+          username: username,
+        })
+
         AsyncStorage.setItem('User', JSON.stringify(User));
         this.props.navigation.navigate('Soal');
 
       }
     })
+
+    fetch('https://kumpulan-soal-toefl.000webhostapp.com/api_soal/updateNilai.php',{
+      method:'POST',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        username: this.state.username,
+        kd_matpel: this.state.jenis_soal,
+        nilai: this.state.hasil
+      })
+    }).then((response)=>response.json())
+      .then((responseJson) => {
+        if(responseJson == "Berhasil"){
+          alert('Nilai berhasil di tambahkan\n Terimakasih')
+          this.props.navigation.navigate('Soal');
+        }else{
+          alert('Terjadi galat')
+        }
+      })
   }
 
   componentDidMount(){

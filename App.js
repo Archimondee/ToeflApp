@@ -6,11 +6,13 @@ import Soal from './src/Components/Soal';
 import SoalText from './src/Components/SoalText';
 import InfoScreen from './src/Components/InfoScreen';
 
+import SoalAudio from './src/Test/SoalAudio';
+
 import Route from './src/Route';
 
 export default function App() {
   return (
-    <Main/>
+    <SoalAudio/>
   );
 }
 
