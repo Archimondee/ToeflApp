@@ -170,17 +170,6 @@ export default class HistoryScreen extends Component {
                           >
                             <Text>Nilai Angka</Text>
                           </View>
-                          <View
-                            style={{
-                              flex: 1,
-                              borderBottomColor: 'black',
-                              borderWidth: 1,
-                              alignContent: 'center',
-                              alignItems: 'center',
-                            }}
-                          >
-                            <Text>Nilai Huruf</Text>
-                          </View>
                         </View>
 
                         <View style={{flexDirection: 'row'}}>
@@ -215,18 +204,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{this.state.data[0].nilai_structure}</Text>
-                          </View>
-                          <View
-                            style={{
-                              flex: 1,
-                              borderBottomColor: 'black',
-                              borderWidth: 1,
-                              alignContent: 'center',
-                              alignItems: 'center',
-                            }}
-                          >
-                            <Text>Nilai Huruf</Text>
+                            <Text>{parseInt(this.state.data[0].nilai_structure)+20}</Text>
                           </View>
                         </View>
 
@@ -262,18 +240,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{this.state.data[0].nilai_writing}</Text>
-                          </View>
-                          <View
-                            style={{
-                              flex: 1,
-                              borderBottomColor: 'black',
-                              borderWidth: 1,
-                              alignContent: 'center',
-                              alignItems: 'center',
-                            }}
-                          >
-                            <Text>Nilai Huruf</Text>
+                            <Text>{parseInt(this.state.data[0].nilai_writing)+20}</Text>
                           </View>
                         </View>
 
@@ -309,7 +276,31 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{this.state.data[0].nilai_audio}</Text>
+                            <Text>{parseInt(this.state.data[0].nilai_audio)+24}</Text>
+                          </View>
+                        </View>
+                        <View style={{flexDirection: 'row'}}>
+                          <View
+                            style={{
+                              flex: 0.3,
+                              borderBottomColor: 'black',
+                              borderWidth: 1,
+                              alignContent: 'center',
+                              alignItems: 'center',
+                            }}
+                          >
+                            <Text>4</Text>
+                          </View>
+                          <View
+                            style={{
+                              flex: 1.5,
+                              borderBottomColor: 'black',
+                              borderWidth: 1,
+                              alignContent: 'center',
+                              alignItems: 'center',
+                            }}
+                          >
+                            <Text>Skor akhir</Text>
                           </View>
                           <View
                             style={{
@@ -320,7 +311,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>Nilai Huruf</Text>
+                            <Text>{(parseInt(this.state.data[0].nilai_audio)+24)+(parseInt(this.state.data[0].nilai_writing)+20)+parseInt(this.state.data[0].nilai_structure)+20}</Text>
                           </View>
                         </View>
                       </View>

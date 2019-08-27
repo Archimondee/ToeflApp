@@ -7,7 +7,8 @@ export default class Home extends Component {
   constructor(props){
     super(props);
     this.state={
-      nama: ''
+      nama: '',
+      nilai_audio: '0',
     }
   }
 
@@ -20,11 +21,43 @@ export default class Home extends Component {
     AsyncStorage.getItem('User',(err, result)=>{
       if(result){
         let hasil = JSON.parse(result);
+        console.log(hasil);
         this.setState({
-          nama: hasil[0].nama
+          nama: hasil[0].nama,
+          nilai_audio: hasil[0].nilai_audio
         })
       }
     })
+  }
+
+  _getAudio(){
+    const {nilai_audio} = this.state;
+    if(nilai_audio!='0'){
+      alert('Soal Toefl Audio sudah dikerjakan\nTerimakasih')
+    }else{
+      var js = "Audio";
+      fetch('https://kumpulan-soal-toefl.000webhostapp.com/api_soal/getAudio.php',{
+        method:'POST',
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+        })
+      }).then((response)=>response.json())
+        .then((responseJson) => {
+          //console.log(responseJson);
+          // this.setState({
+          //   soal: responseJson,
+          // })
+          this.props.navigation.navigate('SoalAudio',{
+            soal: responseJson,
+            jenis_soal: js
+          })
+          //console.log(this.state.soal[0]);
+        })
+    }
+    
   }
 
   componentDidMount(){
@@ -97,7 +130,7 @@ export default class Home extends Component {
                   marginLeft:20, marginRight:20
                 }}
               >
-                <TouchableOpacity  style={{ flex: 1, flexDirection: 'column' }}>
+                <TouchableOpacity onPress={()=>this._getAudio()} style={{ flex: 1, flexDirection: 'column' }}>
                   <View
                     style={{
                       flex: 2,

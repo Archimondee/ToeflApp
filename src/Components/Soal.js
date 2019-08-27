@@ -52,9 +52,6 @@ export default class Soal extends Component {
   componentDidMount(){
     this.getNilai();
   }
-  componentDidUpdate(){
-    this.getNilai();
-  }
   render () {
     const {width, height} = Dimensions.get ('screen');
     return (

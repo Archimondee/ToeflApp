@@ -162,7 +162,7 @@ export default class SoalText extends Component {
         })
 
         AsyncStorage.setItem('User', JSON.stringify(User));
-        this.props.navigation.navigate('Soal');
+        this.props.navigation.navigate('Home');
 
       }
     })
@@ -182,7 +182,7 @@ export default class SoalText extends Component {
       .then((responseJson) => {
         if(responseJson == "Berhasil"){
           alert('Nilai berhasil di tambahkan\n Terimakasih')
-          this.props.navigation.navigate('Soal');
+          this.props.navigation.navigate('Home');
         }else{
           alert('Terjadi galat')
         }
