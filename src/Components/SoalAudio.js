@@ -318,15 +318,20 @@ export default class SoalAudio extends Component {
     }
   }
 
+  back(){
+    this._stopAudio();
+    this.props.navigation.goBack();
+  }
+
   
 
   render () {
     const {width} = Dimensions.get ('screen');
     return (
       <Container style={{paddingTop: 30, flex: 1}}>
-        <Header style={{backgroundColor: '#2F954E'}}>
+        <Header style={{backgroundColor: '#E9B34F'}}>
           <Left>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack ()}>
+            <TouchableOpacity onPress={() => this.back()}>
               <Ionicons name="ios-arrow-back" size={32} color="white" />
             </TouchableOpacity>
           </Left>
@@ -366,7 +371,7 @@ export default class SoalAudio extends Component {
                           style={{
                             width: 150,
                             justifyContent: 'center',
-                            backgroundColor: '#2F954E',
+                            backgroundColor: '#E9B34F',
                           }}
                         >
                           <Text
@@ -399,7 +404,7 @@ export default class SoalAudio extends Component {
                       paddingRight: 10,
                     }}
                   >
-                    <ScrollView style={{height: 300, width: 300, paddingTop:5}}>
+                    <ScrollView style={{height: 180, width: '100%', paddingTop:5}}>
                       <View style={{alignItems:'center', justifyContent:'center'}}>
                         <Text>Tekan button di bawah ini untuk memulai.</Text>
                         <View style={{paddingTop:10, height:50, width:100, flexDirection:'row', justifyContent:'space-around'}}>
@@ -470,7 +475,7 @@ export default class SoalAudio extends Component {
                   >
                     <View />
                     <Button
-                      style={{width: 150, backgroundColor: '#2F954E'}}
+                      style={{width: 150, backgroundColor: '#E9B34F'}}
                       iconRight
                       onPress={() =>
                         this.checkJawaban (item.id, this._deckSwiper)}

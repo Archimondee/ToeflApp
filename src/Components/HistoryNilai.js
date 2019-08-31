@@ -74,10 +74,31 @@ export default class HistoryScreen extends Component {
     this.getNilai();
   }
 
+  getTotal(){
+    const {data} = this.state;
+    let writing = 0;
+    let audio = 0;
+    let structure = 0;
+    if(parseInt(this.state.data[0].nilai_writing)!=0){
+      writing = writing+parseInt(this.state.data[0].nilai_writing)+20
+    }
+
+    if(parseInt(this.state.data[0].nilai_audio)!=0){
+      audio = audio+parseInt(this.state.data[0].nilai_audio)+24
+    }
+
+    if(parseInt(this.state.data[0].nilai_structure)!=0){
+      structure = structure+parseInt(this.state.data[0].nilai_structure)+20
+    }
+
+    let total = structure + audio + writing;
+    return total;
+  }
+
   render () {
     return (
       <View style={{flex: 1, paddingTop: 30}}>
-        <Header style={{backgroundColor: '#2F954E'}}>
+        <Header style={{backgroundColor: '#E9B34F'}}>
           <View
             style={{
               width: 40,
@@ -157,7 +178,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>Mata Pelajaran</Text>
+                            <Text>Lesson</Text>
                           </View>
                           <View
                             style={{
@@ -204,7 +225,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{parseInt(this.state.data[0].nilai_structure)+20}</Text>
+                            <Text>{parseInt(this.state.data[0].nilai_structure)!=0?(parseInt(this.state.data[0].nilai_structure)+20):0}</Text>
                           </View>
                         </View>
 
@@ -229,7 +250,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>Nilai Writing</Text>
+                            <Text>Nilai Reading</Text>
                           </View>
                           <View
                             style={{
@@ -240,7 +261,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{parseInt(this.state.data[0].nilai_writing)+20}</Text>
+                            <Text>{parseInt(this.state.data[0].nilai_writing)!=0?(parseInt(this.state.data[0].nilai_writing)+20):0}</Text>
                           </View>
                         </View>
 
@@ -265,7 +286,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>Nilai Audio</Text>
+                            <Text>Nilai Listening</Text>
                           </View>
                           <View
                             style={{
@@ -276,7 +297,9 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{parseInt(this.state.data[0].nilai_audio)+24}</Text>
+                            <Text>{
+                              parseInt(this.state.data[0].nilai_audio)!=0?(
+                              parseInt(this.state.data[0].nilai_audio)+24):0}</Text>
                           </View>
                         </View>
                         <View style={{flexDirection: 'row'}}>
@@ -311,7 +334,7 @@ export default class HistoryScreen extends Component {
                               alignItems: 'center',
                             }}
                           >
-                            <Text>{(parseInt(this.state.data[0].nilai_audio)+24)+(parseInt(this.state.data[0].nilai_writing)+20)+parseInt(this.state.data[0].nilai_structure)+20}</Text>
+                            <Text>{ this.getTotal()}</Text>
                           </View>
                         </View>
                       </View>

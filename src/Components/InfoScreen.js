@@ -64,7 +64,7 @@ export default class InfoScreen extends Component {
               <Button onPress={()=>this.props.navigation.navigate('SoalText',{
                 jenis_soal:this.state.jenis_soal,
                 soal: this.state.soal
-              })} style={{width: 150, justifyContent:'center', backgroundColor:'#2F954E'}}>
+              })} style={{width: 150, justifyContent:'center', backgroundColor:'#E9B34F'}}>
                 <Text
                   style={{
                     textAlign: 'center',

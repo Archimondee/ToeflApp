@@ -97,7 +97,7 @@ export default class Home extends Component {
                   marginRight: 15,
                   marginTop: 10,
                   borderRadius: 10,
-                  backgroundColor:'#2F954E',
+                  backgroundColor:'#E9B34F',
                   marginLeft:20, marginRight:20
                 }}
               >
@@ -126,7 +126,7 @@ export default class Home extends Component {
                   marginRight: 15,
                   marginTop: 10,
                   borderRadius: 10,
-                  backgroundColor:'#2F954E',
+                  backgroundColor:'#E9B34F',
                   marginLeft:20, marginRight:20
                 }}
               >
@@ -155,7 +155,7 @@ export default class Home extends Component {
                   marginRight: 15,
                   marginTop: 10,
                   borderRadius: 10,
-                  backgroundColor:'#2F954E',
+                  backgroundColor:'#E9B34F',
                   marginLeft:20, marginRight:20
                 }}
               >
@@ -184,7 +184,7 @@ export default class Home extends Component {
                   marginRight: 15,
                   marginTop: 10,
                   borderRadius: 10,
-                  backgroundColor:'#2F954E',
+                  backgroundColor:'#E9B34F',
                   marginLeft:20, marginRight:20
                 }}
               >

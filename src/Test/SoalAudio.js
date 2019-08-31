@@ -314,7 +314,7 @@ export default class SoalAudio extends Component {
     const {width} = Dimensions.get ('screen');
     return (
       <Container style={{paddingTop: 30, flex: 1}}>
-        <Header style={{backgroundColor: '#2F954E'}}>
+        <Header style={{backgroundColor: '#E9B34F'}}>
           <Left>
             <TouchableOpacity onPress={() => this.props.navigation.goBack ()}>
               <Ionicons name="ios-arrow-back" size={32} color="white" />
@@ -356,7 +356,7 @@ export default class SoalAudio extends Component {
                           style={{
                             width: 150,
                             justifyContent: 'center',
-                            backgroundColor: '#2F954E',
+                            backgroundColor: '#E9B34F',
                           }}
                         >
                           <Text
@@ -581,7 +581,7 @@ export default class SoalAudio extends Component {
                   >
                     <View />
                     <Button
-                      style={{width: 150, backgroundColor: '#2F954E'}}
+                      style={{width: 150, backgroundColor: '#E9B34F'}}
                       iconRight
                       onPress={() =>
                         this.checkJawaban (item.id, this._deckSwiper)}

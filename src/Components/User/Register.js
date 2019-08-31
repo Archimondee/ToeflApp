@@ -62,7 +62,7 @@ export default class Register extends Component {
           }else{
             alert('Terimakasih telah mendaftar');
             AsyncStorage.setItem('User',JSON.stringify(responseJson));
-            this.props.navigation('Home');
+            this.props.navigation.navigate('Home');
           }
         })
       }
@@ -88,14 +88,13 @@ export default class Register extends Component {
             alignContent: 'center',
           }}
         >
-          <View
-            style={{
-              height: 150,
-              width: 150,
-              borderWidth: 1,
-              borderColor: 'black',
-            }}
-          />
+          <View style={{height:200, width:200}}>
+            <Image 
+              style={{height:200, width:200}}
+              source={require('../../../assets/logo.jpeg')}
+              resizeMode={'contain'}
+            />
+          </View>
         </View>
         <View style={{flex: 1.5}}>
           <ScrollView style={{flex:1.5, paddingBottom:15}}>
@@ -154,7 +153,7 @@ export default class Register extends Component {
                 width: 200,
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#2F954E',
+                backgroundColor: '#E9B34F',
               }}
             >
               <Text style={{color: 'white'}}>Register</Text>
