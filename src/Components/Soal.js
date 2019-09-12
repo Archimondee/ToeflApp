@@ -79,8 +79,7 @@ export default class Soal extends Component {
               marginRight: 20,
             }}
           >
-          {
-            this.state.nilai_writing == '0'?(
+          
               <Card
               style={{
                 height: 100,
@@ -108,16 +107,14 @@ export default class Soal extends Component {
                   <Text
                     style={{fontSize: 18, textAlign: 'center', color: 'white'}}
                   >
-                    Latihan soal writing
+                    Latihan soal reading
                   </Text>
                 </View>
               </TouchableOpacity>
             </Card>
-            ):null
-          }
+            
 
-          {
-            this.state.nilai_structure=='0'?(
+         
               <Card
               style={{
                 height: 100,
@@ -150,8 +147,6 @@ export default class Soal extends Component {
                 </View>
               </TouchableOpacity>
             </Card>
-            ):null
-          }
           </View>
         </View>
       </View>
